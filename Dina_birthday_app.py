@@ -36,14 +36,16 @@ BIRTH_MONTH = 9
 BIRTH_DAY = 12
 BIRTH_YEAR = 2004
 
-# Target timezone (adjust string if needed, e.g. "Europe/Paris", "America/New_York")
 APP_TIMEZONE = ZoneInfo("Africa/Algiers")
 
 # -------------------- STYLE --------------------
 
-st.markdown("""
+st.markdown(
+    """
 
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
 
 # -------------------- FUNCTIONS --------------------
 
@@ -69,41 +71,35 @@ def generate_birthday_pdf(name, age, message):
 
     c.setFillColor(white)
     c.roundRect(
-        half + 1*cm, 1.5*cm, half - 2*cm, height - 3*cm,
-        20, fill=1, stroke=0
+        half + 1 * cm, 1.5 * cm, half - 2 * cm, height - 3 * cm, 20, fill=1, stroke=0
     )
 
     c.setFont("Helvetica-Bold", 28)
     c.setFillColor(HexColor("#D81B60"))
-    c.drawCentredString(half + half/2, height - 4.5*cm, "Happy Birthday!")
+    c.drawCentredString(half + half / 2, height - 4.5 * cm, "Happy Birthday!")
 
     c.setFont("Helvetica-Bold", 21)
     c.setFillColor(HexColor("#7B1FA2"))
-    c.drawCentredString(half + half/2, height - 7*cm, f"Dear {name}")
+    c.drawCentredString(half + half / 2, height - 7 * cm, f"Dear {name}")
 
     c.setFont("Helvetica-Bold", 18)
     c.setFillColor(HexColor("#00897B"))
-    c.drawCentredString(half + half/2, 4*cm, f"{age} years ❤️")
+    c.drawCentredString(half + half / 2, 4 * cm, f"{age} years ❤️")
 
     c.setFillColor(white)
-    c.roundRect(
-        1*cm, 1.5*cm, half - 2*cm, height - 3*cm,
-        20, fill=1, stroke=0
-    )
+    c.roundRect(1 * cm, 1.5 * cm, half - 2 * cm, height - 3 * cm, 20, fill=1, stroke=0)
 
     c.setFont("Helvetica-Bold", 25)
     c.setFillColor(HexColor("#C2185B"))
-    c.drawCentredString(half/2, height - 5*cm, f"{age} Years Young")
+    c.drawCentredString(half / 2, height - 5 * cm, f"{age} Years Young")
 
     c.setFont("Helvetica-Oblique", 15)
     c.setFillColor(HexColor("#5D4037"))
-    c.drawCentredString(
-        half/2, height - 7*cm, "A day made especially for you"
-    )
+    c.drawCentredString(half / 2, height - 7 * cm, "A day made especially for you")
 
     c.setFont("Helvetica", 11)
     text = c.beginText()
-    text.setTextOrigin(half + 1.8*cm, height - 9*cm)
+    text.setTextOrigin(half + 1.8 * cm, height - 9 * cm)
     text.setLeading(20)
     text.setFillColor(HexColor("#3E2723"))
 
@@ -114,11 +110,11 @@ def generate_birthday_pdf(name, age, message):
 
     c.setFont("Helvetica-Oblique", 12)
     c.setFillColor(HexColor("#8D6E63"))
-    c.drawCentredString(half/2, 3*cm, "Made with love ❤️")
+    c.drawCentredString(half / 2, 3 * cm, "Made with love ❤️")
 
     c.setStrokeColor(HexColor("#DDC8D3"))
     c.setDash(4, 4)
-    c.line(half, 1*cm, half, height - 1*cm)
+    c.line(half, 1 * cm, half, height - 1 * cm)
 
     c.showPage()
     c.save()
@@ -148,4 +144,5 @@ age_on_birthday = target.year - BIRTH_YEAR
 
 # -------------------- HERO --------------------
 
-st.markdown("""
+st.markdown(
+    """
