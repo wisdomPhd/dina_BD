@@ -326,7 +326,7 @@ else:
             Dina ❤️
         </div>
         <div class="countdown-title">
-            September 12 • 22 years young 🎂
+            September 12 • 22 years  🎂
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -355,7 +355,7 @@ I hope this is only the beginning of another beautiful year of memories together
 </div>
 </div>""", unsafe_allow_html=True)
 
-    st.markdown("### 📄 A little card to keep")
+    st.markdown("### 📄 A little card to to download below")
 
     pdf_message = """My dear Dina,
 
@@ -387,6 +387,6 @@ With all my love."""
         st.info("PDF export needs ReportLab. Run: pip install reportlab")
 
 st.markdown(
-    '<div class="footer">Made with ❤️ especially for Dina</div>',
+    '<div class="footer">Made with love ❤️ especially for You</div>',
     unsafe_allow_html=True
 )
