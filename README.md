@@ -1,4 +1,4 @@
-# 🎂 Interactive Birthday Greeting App 🎉
+# 🎂 Interactive Birthday App 🎉
 
 An interactive **Birthday Greeting Web App** built with **Python & Streamlit**.  
 Celebrate birthdays with 🎵 Happy Birthday music, 🎂 animated cake & candles, and 🎈 festive effects — all deployed on **Streamlit Cloud**.
