@@ -288,7 +288,7 @@ if not st.session_state.opened:
     <div class="card">
         <div class="gift">🎁</div>
         <div class="countdown-title">
-            There is something inside this little gift...
+            Please do not open your little gift yet...
         </div>
     </div>
     """, unsafe_allow_html=True)
