@@ -1,0 +1,263 @@
+import streamlit as st
+from datetime import datetime
+import time
+
+# -----------------------------
+# PAGE CONFIG
+# -----------------------------
+st.set_page_config(
+    page_title="For Dina ❤️",
+    page_icon="🎂",
+    layout="centered"
+)
+
+# -----------------------------
+# CUSTOM CSS
+# -----------------------------
+st.markdown("""
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap');
+
+.stApp {
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,105,180,0.25), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(255,182,193,0.20), transparent 30%),
+        linear-gradient(135deg, #12000d, #260018, #10000c);
+    color: white;
+}
+
+.title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 72px;
+    text-align: center;
+    color: #ffb6d9;
+    margin-top: 30px;
+    text-shadow: 0 0 20px rgba(255,105,180,0.6);
+}
+
+.subtitle {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: #ffd6e8;
+}
+
+.card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,182,193,0.25);
+    border-radius: 25px;
+    padding: 35px;
+    margin: 30px auto;
+    max-width: 700px;
+    box-shadow: 0 0 40px rgba(255,20,147,0.15);
+    backdrop-filter: blur(10px);
+}
+
+.message {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: center;
+    color: #ffeaf3;
+}
+
+.countdown {
+    font-family: 'Poppins', sans-serif;
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+    color: #ffb6d9;
+    margin: 20px;
+}
+
+.heart {
+    text-align: center;
+    font-size: 35px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.15); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+.footer {
+    text-align: center;
+    color: #c99aaa;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 50px;
+}
+
+div.stButton > button {
+    display: block;
+    margin: auto;
+    border-radius: 30px;
+    padding: 12px 35px;
+    font-size: 18px;
+    font-weight: 600;
+    background: linear-gradient(90deg, #ff4f9a, #ff82b7);
+    color: white;
+    border: none;
+    box-shadow: 0 0 20px rgba(255,79,154,0.4);
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+
+# -----------------------------
+# HEADER
+# -----------------------------
+
+st.markdown(
+    '<div class="title">For Dina ❤️</div>',
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    '<div class="subtitle">A little surprise made just for you...</div>',
+    unsafe_allow_html=True
+)
+
+st.markdown('<div class="heart">♥</div>', unsafe_allow_html=True)
+
+
+# -----------------------------
+# COUNTDOWN
+# -----------------------------
+
+now = datetime.now()
+
+birthday = datetime(
+    now.year,
+    9,
+    12,
+    0,
+    0,
+    0
+)
+
+# If this year's birthday has already passed,
+# count toward next year's birthday.
+if now >= birthday:
+    birthday = datetime(
+        now.year + 1,
+        9,
+        12,
+        0,
+        0,
+        0
+    )
+
+difference = birthday - now
+
+days = difference.days
+hours = difference.seconds // 3600
+minutes = (difference.seconds % 3600) // 60
+seconds = difference.seconds % 60
+
+st.markdown(
+    f"""
+    <div class="card">
+        <div class="subtitle">Until Dina's birthday 🎂</div>
+        <div class="countdown">
+            {days} days<br>
+            {hours:02d} : {minutes:02d} : {seconds:02d}
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+
+# -----------------------------
+# OPEN CARD
+# -----------------------------
+
+if "opened" not in st.session_state:
+    st.session_state.opened = False
+
+
+if not st.session_state.opened:
+
+    if st.button("💌 Open your birthday card"):
+
+        st.session_state.opened = True
+        st.balloons()
+
+        time.sleep(0.5)
+
+        st.rerun()
+
+else:
+
+    st.markdown(
+        """
+        <div class="card">
+
+        <div class="title" style="font-size:55px;">
+        Happy Birthday Dina 🎂
+        </div>
+
+        <div class="message">
+
+        Today is your day. ❤️
+
+        <br><br>
+
+        I hope this year brings you everything
+        you've been wishing for, and so many
+        beautiful moments that you never forget them.
+
+        <br><br>
+
+        Thank you for being such a special person
+        in my life. Every moment with you means
+        more to me than I can properly put into words.
+
+        <br><br>
+
+        I hope you smile today.
+        I hope you feel loved today.
+        And I hope this birthday becomes one
+        of your favorite memories.
+
+        <br><br>
+
+        🎂 Happy Birthday, Dina. ❤️
+
+        <br><br>
+
+        <b>From someone who loves you very much ❤️</b>
+
+        </div>
+
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.snow()
+
+    st.markdown(
+        '<div class="heart">❤️ ❤️ ❤️</div>',
+        unsafe_allow_html=True
+    )
+
+
+# -----------------------------
+# FOOTER
+# -----------------------------
+
+st.markdown(
+    """
+    <div class="footer">
+        Made with ❤️ especially for Dina
+    </div>
+    """,
+    unsafe_allow_html=True
+)
