@@ -3,6 +3,3 @@ reportlab
 streamlit-lottie
 requests
 moviepy
-datetime
-zoneinfo
-io
